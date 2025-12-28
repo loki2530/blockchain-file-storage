@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <h2 id="title">Login</h2>
+
+  <form id="loginForm" method="POST" action="/auth/login">
+    <input name="username" placeholder="Username" required>
+    <input type="password" name="password" placeholder="Password" required>
+    <button>Login</button>
+  </form>
+
+  <form id="registerForm" method="POST" action="/auth/register" style="display:none">
+    <input name="username" placeholder="Username" required>
+    <input type="password" name="password" placeholder="Password" required>
+    <button>Register</button>
+  </form>
+
+  <p id="toggle" class="link" onclick="toggle()">Don’t have an account? Register</p>
+</div>
+
+<script>
+function toggle() {
+  const login = document.getElementById("loginForm");
+  const reg = document.getElementById("registerForm");
+  const title = document.getElementById("title");
+  const toggle = document.getElementById("toggle");
+
+  if (login.style.display === "none") {
+    login.style.display = "block";
+    reg.style.display = "none";
+    title.innerText = "Login";
+    toggle.innerText = "Don’t have an account? Register";
+  } else {
+    login.style.display = "none";
+    reg.style.display = "block";
+    title.innerText = "Register";
+    toggle.innerText = "Already have an account? Login";
+  }
+}
+</script>
+
+</body>
+</html>

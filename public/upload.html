@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Upload</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <h2>Upload File</h2>
+
+  <form id="uploadForm">
+    <input type="file" name="file" required>
+    <button>Upload</button>
+  </form>
+
+  <br>
+  <button onclick="location.href='home.html'">Go Back Home</button>
+</div>
+
+<div class="popup" id="popup">
+  <div class="popup-box">
+    <h3>Upload Successful</h3>
+    <p id="hashText"></p>
+    <button onclick="copyHash()">Copy Hash</button>
+    <br><br>
+    <button onclick="location.href='home.html'">Go Home</button>
+  </div>
+</div>
+
+<script>
+let currentHash = "";
+
+document.getElementById("uploadForm").addEventListener("submit", async e => {
+  e.preventDefault();
+  const formData = new FormData(e.target);
+
+  const res = await fetch("/api/files/upload", {
+    method: "POST",
+    body: formData
+  });
+
+  const data = await res.json();
+  currentHash = data.ipfsHash;
+
+  document.getElementById("hashText").innerText = currentHash;
+  document.getElementById("popup").style.display = "flex";
+});
+
+function copyHash() {
+  navigator.clipboard.writeText(currentHash);
+  alert("Hash copied!");
+}
+</script>
+
+</body>
+</html>

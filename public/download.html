@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Download</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <h2>Download File</h2>
+  <input id="hash" placeholder="Enter IPFS Hash">
+  <br><br>
+  <button onclick="download()">Download</button>
+  <br><br>
+  <button onclick="location.href='home.html'">Go Back Home</button>
+</div>
+
+<script>
+function download() {
+  const hash = document.getElementById("hash").value;
+  window.location.href = `/api/files/download/${hash}`;
+}
+</script>
+
+</body>
+</html>
