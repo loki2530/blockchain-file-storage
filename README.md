@@ -39,7 +39,7 @@ The system ensures data integrity, confidentiality, and decentralized storage.
 
 ## 📁 Project Structure
 
-blockchain-file-storage/
+```blockchain-file-storage/
 │
 ├── server.js
 ├── package.json
@@ -73,7 +73,7 @@ blockchain-file-storage/
 │ ├── download.html
 │ └── style.css
 │
-└── README.md
+└── README.md```
 
 
 ---
@@ -84,7 +84,6 @@ blockchain-file-storage/
 ## ⚙️ Setup Instructions
 
 ### 1️⃣ Clone the repository
-```bash
 git clone https://github.com/your-username/blockchain-file-storage.git
 cd blockchain-file-storage
 
@@ -111,11 +110,43 @@ http://localhost:5000/login.html
 
 🔐 Security Note
 
-.env file is ignored using .gitignore
+- .env file is ignored using .gitignore
 
-Files are encrypted before uploading to IPFS
+- Files are encrypted before uploading to IPFS
 
-Only encrypted content is stored on IPFS
+- Only encrypted content is stored on IPFS
+
+🔐 How Security Works
+
+- Files are encrypted using AES-256 before upload
+
+- Encrypted files are stored on IPFS
+
+- Only encrypted data is publicly accessible
+
+- Decryption happens on the server before download
+
+- File metadata (IPFS hash, IV, filename) is stored in MongoDB
+
+📌 Usage Flow
+
+1. User registers or logs in
+
+2. User chooses upload or download
+
+3. On upload:
+
+    - File is encrypted
+
+    - Uploaded to IPFS
+
+    - IPFS hash is generated
+
+4. On download:
+
+    - User provides IPFS hash
+
+    - File is fetched, decrypted, and downloaded
 
 📌 Use Case
 
@@ -124,4 +155,4 @@ This project demonstrates how blockchain concepts like decentralized storage can
 👨‍💻 Author
 
 Logeshwaran S
-Full Stack Developer Intern"# blockchain-file-storage" 
+Full Stack Developer Intern
