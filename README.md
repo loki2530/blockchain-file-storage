@@ -39,8 +39,10 @@ The system ensures data integrity, confidentiality, and decentralized storage.
 
 ## 📁 Project Structure
 
-```blockchain-file-storage/
-│
+```
+
+│blockchain-file-storage/
+|
 ├── server.js
 ├── package.json
 ├── .env.example
